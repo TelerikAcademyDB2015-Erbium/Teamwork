@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +57,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutopartsSystem.Core\AutopartsSystem.Core.csproj">
+      <Project>{4b45dd56-c8ae-49b2-92a0-3fa67e9a52d2}</Project>
+      <Name>AutopartsSystem.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutopartsSystem.Data\AutopartsSystem.Data.csproj">
+      <Project>{387e6d2d-0ba6-4576-81cf-4457a8a95f97}</Project>
+      <Name>AutopartsSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutopartsSystem.Models\AutopartsSystem.Models.csproj">
+      <Project>{1297d226-c3ac-4f30-9839-faa8d6b5dcc6}</Project>
+      <Name>AutopartsSystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
