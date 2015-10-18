@@ -6,6 +6,8 @@
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public PartType Type { get; set; }
 
         public Compatibility Compatibility { get; set; }
