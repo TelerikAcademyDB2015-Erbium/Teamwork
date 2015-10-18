@@ -1,8 +1,7 @@
-﻿using AutopartsSystem.Models;
-
-namespace AutopartsSystem.Data
+﻿namespace AutopartsSystem.Data
 {
     using System.Data.Entity;
+    using Models;
 
     public class AutopartsDbContext : DbContext
     {
