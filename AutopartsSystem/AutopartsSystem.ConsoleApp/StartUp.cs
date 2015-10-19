@@ -1,10 +1,6 @@
-﻿using AutopartsSystem.Models;
-
-namespace AutopartsSystem.ConsoleApp
+﻿namespace AutopartsSystem.ConsoleApp
 {
-    using System.Collections.Generic;
     using System.Data.Entity;
-    using Core.Common;
     using Core.Parsers.Excel;
     using Data;
     using Data.Migrations;
@@ -15,6 +11,7 @@ namespace AutopartsSystem.ConsoleApp
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AutopartsDbContext, Configuration>());
             var db = new AutopartsDbContext();
+
             // db.Manufacturers.Add(new Manufacturer() { Name = "Bosch" });
             // db.SaveChanges();
             // Console.WriteLine(db.Manufacturers.Count());
