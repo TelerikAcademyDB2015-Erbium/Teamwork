@@ -5,7 +5,6 @@
 
     public class AutoPart
     {
-
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -26,7 +25,6 @@
 
         public DateTime? BuiltOn { get; set; }
 
-        public DateTime? SoldOn { get; set; }
-        
+        public DateTime? SoldOn { get; set; }   
     }
 }

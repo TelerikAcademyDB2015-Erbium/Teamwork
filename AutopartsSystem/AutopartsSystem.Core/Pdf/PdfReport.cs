@@ -71,17 +71,14 @@
                 table.AddCell(autopart.Quantity.ToString());
                 table.AddCell(autopart.Sum.ToString());
                 totalSum += autopart.Sum;
-
             }
+
             var totalCell = new PdfPCell(new Phrase(TotalColumName));
             totalCell.BackgroundColor = BaseColor.LIGHT_GRAY;
 
             table.AddCell(new PdfPCell { Colspan = 3 });
             table.AddCell(totalCell);
             table.AddCell(totalSum.ToString());
-
-
-
         }
 
         private void AddAutopartsReportsTableColumns(PdfPTable table)
@@ -90,8 +87,7 @@
             table.AddCell(ManufacturerNameColumnHeader);
             table.AddCell(PriceColumnHeader);
             table.AddCell(QuantityColumnHeader);
-            table.AddCell(SumColumnHeader);
-            
+            table.AddCell(SumColumnHeader);    
         }
 
         private void AddAutopartsReportsTableHeader(PdfPTable table)

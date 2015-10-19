@@ -1,22 +1,21 @@
-﻿using System.Linq;
-using AutopartsSystem.Core.Common;
-using AutopartsSystem.Data;
-
-namespace AutopartsSystem.Core.Reporters.XML
+﻿namespace AutopartsSystem.Core.Reporters.XML
 {
+    using System.Linq;
     using System.Xml.Linq;
+    using AutopartsSystem.Core.Common;
+    using AutopartsSystem.Data;
+
     public class XmlReport
     {
         public void GenerateAutoPartReport()
         {
             var db = new AutopartsDbContext();
             var entries = db.AutoParts.ToList();
-            // Create a root node
+
             XElement autoParts = new XElement("AutoParts");
 
             foreach (var entry in entries)
             {
-                // Add child nodes
                 XElement name = new XElement("Name", entry.Name);
                 XElement manufacturer = new XElement("Manufacturer", entry.Manufacturer.Name);
                 XElement model = new XElement("Model", entry.Compatibility.Model);
@@ -30,8 +29,8 @@ namespace AutopartsSystem.Core.Reporters.XML
                 autoPart.Add(quantity);
                 autoParts.Add(autoPart);
             }
-            
-            autoParts.Save(Constants.PathToFiles + "/" +  "AutoParts.xml");
+
+            autoParts.Save(Constants.PathToFiles + "/" + "AutoParts.xml");
         }
     }
 }

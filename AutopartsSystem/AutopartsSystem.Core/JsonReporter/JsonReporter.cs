@@ -12,7 +12,7 @@
     {
         public void GenerateJsonFiles(string path, AutopartsDbContext db)
         {
-            //var db = new AutopartsDbContext();
+            // var db = new AutopartsDbContext();
             var autoParts = db.AutoParts
                 .Select(x => new
                 {
@@ -33,7 +33,6 @@
             }
 
             Console.WriteLine("JSON file in Reports/JSON/ created.");
-
         }
     }
 }
