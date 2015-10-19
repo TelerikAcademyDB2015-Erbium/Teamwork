@@ -1,5 +1,6 @@
 ﻿namespace AutopartsSystem.Core.Parsers.Excel
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
@@ -38,26 +39,31 @@
                 using (OleDbDataAdapter da = new OleDbDataAdapter(
                     "SELECT " + columns + " FROM [" + sheetName + "$]", conn))
                 {
+                    // TODO: Catch the exception and return appropriate message
                     DataTable dt = new DataTable("temp");
-
-                    da.Fill(dt);
+                    try
+                    {
+                        da.Fill(dt);
+                    }
+                    catch (OleDbException ex)
+                    {
+                        throw ex;
+                    }
+                    
                     var allRows = dt.Rows;
                     for (int i = 0; i < allRows.Count; i++)
                     {
                         var currentRowElements = allRows[i].ItemArray;
                         if (!string.IsNullOrEmpty(currentRowElements[0].ToString()))
                         {
-                            currentRow.Append(currentRowElements[0].ToString());
-                            currentRow.Append(Constants.DividerForExcelRead);
-                            currentRow.Append(currentRowElements[1].ToString());
-                            currentRow.Append(Constants.DividerForExcelRead);
-                            currentRow.Append(currentRowElements[2].ToString());
-                            currentRow.Append(Constants.DividerForExcelRead);
-                            currentRow.Append(currentRowElements[3].ToString());
-                            currentRow.Append(Constants.DividerForExcelRead);
-                            currentRow.Append(currentRowElements[4].ToString());
-                            currentRow.Append(Constants.DividerForExcelRead);
-                            currentRow.Append(currentRowElements[5].ToString());
+                            for (int j = 0; j < columnOrder.Count(); j++)
+                            {
+                                currentRow.Append(currentRowElements[j].ToString());
+                                if (j != columnOrder.Count() - 1)
+                                {
+                                    currentRow.Append(Constants.DividerForExcelRead);
+                                }
+                            }
 
                             contentToReturn.Add(currentRow.ToString());
                             currentRow.Clear();
