@@ -73,8 +73,8 @@
                 totalSum += autopart.Sum;
 
             }
-            var totalCell=new PdfPCell(new Phrase(TotalColumName));
-            totalCell.BackgroundColor=BaseColor.LIGHT_GRAY;
+            var totalCell = new PdfPCell(new Phrase(TotalColumName));
+            totalCell.BackgroundColor = BaseColor.LIGHT_GRAY;
 
             table.AddCell(new PdfPCell { Colspan = 3 });
             table.AddCell(totalCell);
