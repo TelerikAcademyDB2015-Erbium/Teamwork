@@ -7,6 +7,7 @@ namespace AutopartsSystem.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
             this.ContextKey = "AutopartsSystem.Data.AutopartsDbContext";
         }
 
