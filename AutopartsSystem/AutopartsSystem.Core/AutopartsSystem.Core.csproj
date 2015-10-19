@@ -43,8 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Pdf\PdfSalesReportGenerator.cs" />
-    <Compile Include="Pdf\SalesInfo.cs" />
+    <Compile Include="Pdf\PdfReport.cs" />
     <Compile Include="Pdf\UniqueFileNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
