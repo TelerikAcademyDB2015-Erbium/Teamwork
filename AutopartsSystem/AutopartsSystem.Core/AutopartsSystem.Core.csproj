@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Parsers\Excel\XlsReader.cs" />
+    <Compile Include="Parsers\Excel\XlsToAutoPart.cs" />
     <Compile Include="Pdf\PdfReport.cs" />
     <Compile Include="Pdf\UniqueFileNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
