@@ -1,4 +1,6 @@
-﻿namespace AutopartsSystem.ConsoleApp
+﻿using AutopartsSystem.Core.Reporters.XML;
+
+namespace AutopartsSystem.ConsoleApp
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -31,16 +33,19 @@
                
             // var jsonExporter = new JsonReporter();
             // jsonExporter.GenerateJsonFiles(@"../../../Reports/JSON/", db);
-            var columnNames = new List<string>()
-            {
-                "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
-            };
-            var zipReaderdbParser = new ZipToAutoPart();
-            zipReaderdbParser.ParseZipToDB(Constants.PathToFiles + "/Files.zip", columnNames);
+            //var columnNames = new List<string>()
+            //{
+            //    "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
+            //};
+            //var zipReaderdbParser = new ZipToAutoPart();
+            //zipReaderdbParser.ParseZipToDB(Constants.PathToFiles + "/Files.zip", columnNames);
 
             // dirReader.GetFiles(Constants.PathToFiles + "/Files.zip");
             // var parser = new XlsToAutoPart(db);
             // parser.InsertDataIntoDB();
+
+            var XMLReportTest = new XmlReport();
+            XMLReportTest.GenerateAutoPartReport();
         }
     }
 }
