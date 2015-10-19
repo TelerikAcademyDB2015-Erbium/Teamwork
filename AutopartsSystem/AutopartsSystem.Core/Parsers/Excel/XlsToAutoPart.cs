@@ -1,72 +1,59 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using AutopartsSystem.Data;
-using AutopartsSystem.Data.Migrations;
-using AutopartsSystem.Models;
-
-namespace AutopartsSystem.Core.Parsers.Excel
+﻿namespace AutopartsSystem.Core.Parsers.Excel
 {
+    using System;
     using System.Collections.Generic;
     using Common;
+    using Data;
+    using Models;
 
     public class XlsToAutoPart
     {
         private AutopartsDbContext db;
 
-        public XlsToAutoPart(AutopartsDbContext database)
+        public XlsToAutoPart()
+        {
+            this.db = new AutopartsDbContext();
+        }
+
+        public XlsToAutoPart(AutopartsDbContext database) : this()
         {
             this.db = database;
         }
 
-        public void InsertDataIntoDB()
+        public void InsertDataIntoDB(IEnumerable<string> content, IList<string> format)
         {
-            var theReader = new XlsReader();
+            int indexForName = format.IndexOf("Name");
+            int indexForDescription = format.IndexOf("Description");
+            int indexForPrice = format.IndexOf("Price");
+            int indexForCompatibility = format.IndexOf("Compatibility");
+            int indexForManufacturer = format.IndexOf("Manufacturer");
+            int indexForType = format.IndexOf("Type");
+            int iterations = 0;
 
-            var pathToTheXLS = Constants.PathToFiles + "/1.xls";
-            var columnNames = new List<string>()
-            {
-                "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
-            };
-            var sheetName = "Parts";
-
-            var contentToAdd = theReader.ProvideContent(pathToTheXLS, sheetName, columnNames);
-
-            int indexForName = columnNames.IndexOf("Name");
-            int indexForDescription = columnNames.IndexOf("Description");
-            int indexForPrice = columnNames.IndexOf("Price");
-            int indexForCompatibility = columnNames.IndexOf("Compatibility");
-            int indexForManufacturer = columnNames.IndexOf("Manufacturer");
-            int indexForType = columnNames.IndexOf("Type");
-
-
-            foreach (var singleRow in contentToAdd)
+            foreach (var singleRow in content)
             {
                 var rowEntities = singleRow.Split(new[] { Constants.DividerForExcelRead }, StringSplitOptions.None);
                 var autoPartObject = new AutoPart();
-
-                //{
-                //    Name = rowEntities[indexForName],
-                //    Description = rowEntities[indexForDescription],
-                //    Price = decimal.Parse(rowEntities[indexForPrice]),
-                //    Compatibility = this.db.Compatibilities.Find(int.Parse(rowEntities[indexForCompatibility])),
-                //    Manufacturer = this.db.Manufacturers.Find(int.Parse(rowEntities[indexForManufacturer])),
-                //    Type = this.db.PartTypes.Find(int.Parse(rowEntities[indexForType])),
-                //    BuiltOn = DateTime.Now,
-                //    ManufacturerId = int.Parse(rowEntities[indexForManufacturer]),
-                //    Quantity = 0
-                //};
                 autoPartObject.Name = rowEntities[indexForName];
                 autoPartObject.Description = rowEntities[indexForDescription];
                 autoPartObject.Price = decimal.Parse(rowEntities[indexForPrice]);
-                autoPartObject.Compatibility = db.Compatibilities.Find(int.Parse(rowEntities[indexForCompatibility]));
-                autoPartObject.Manufacturer = db.Manufacturers.Find(int.Parse(rowEntities[indexForManufacturer]));
-                autoPartObject.Type = db.PartTypes.Find(int.Parse(rowEntities[indexForType]));
+                autoPartObject.Compatibility = this.db.Compatibilities.Find(int.Parse(rowEntities[indexForCompatibility]));
+                autoPartObject.Manufacturer = this.db.Manufacturers.Find(int.Parse(rowEntities[indexForManufacturer]));
+                autoPartObject.Type = this.db.PartTypes.Find(int.Parse(rowEntities[indexForType]));
                 autoPartObject.BuiltOn = DateTime.Now;
 
-                db.AutoParts.Add(autoPartObject);
-                db.SaveChanges();
+                if (iterations % 100 == 0)
+                {
+                    this.db.SaveChanges();
+                    this.db.Dispose();
+                    this.db = new AutopartsDbContext();
+                }
+
+                this.db.AutoParts.Add(autoPartObject);
+                iterations++;
             }
+
+            this.db.SaveChanges();
         }
     }
 }

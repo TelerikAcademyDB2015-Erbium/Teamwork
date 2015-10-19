@@ -1,16 +1,11 @@
 ﻿namespace AutopartsSystem.ConsoleApp
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
-    using Core;
-    using AutopartsSystem.Core.Pdf;
-    using AutopartsSystem.Models;
-
+    using Core.Common;
     using Core.Parsers.Excel;
     using Data;
     using Data.Migrations;
-    using System;
-    using Core.Common;
-    using Ionic.Zip;
 
     public class Startup
     {
@@ -23,22 +18,29 @@
             // db.SaveChanges();
             // Console.WriteLine(db.Manufacturers.Count());
 
-             //ZipFile zipFile = new ZipFile(Constants.PathToFiles + "/Files.zip");
-             //zipFile.ExtractAll(Constants.PathToFiles + "/Extracted/");
-             //Console.WriteLine(Constants.PathToFiles);
+            // ZipFile zipFile = new ZipFile(Constants.PathToFiles + "/Files.zip");
+            // zipFile.ExtractAll(Constants.PathToFiles + "/Extracted/");
+            // Console.WriteLine(Constants.PathToFiles);
+               
+            // var autopart = new AutoPart { Id=1, Compatibility = new Compatibility(),Type = new PartType(), Description = "bla bla bla", Manufacturer = new Manufacturer { Name = "PeshoMotors" }, Quantity = 30, Price = 500, Name = "Driving wheel" };
+            // db.AutoParts.Add(autopart);
+            // db.SaveChanges();
+               
+            // var report = new PdfReport();
+            // report.GenerateAutopartsReports(@"../../../Reports/PDF/", "joro", db);
+               
+            // var jsonExporter = new JsonReporter();
+            // jsonExporter.GenerateJsonFiles(@"../../../Reports/JSON/", db);
+            var columnNames = new List<string>()
+            {
+                "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
+            };
+            var zipReaderdbParser = new ZipToAutoPart();
+            zipReaderdbParser.ParseZipToDB(Constants.PathToFiles + "/Files.zip", columnNames);
 
-            //var autopart = new AutoPart { Id=1, Compatibility = new Compatibility(),Type = new PartType(), Description = "bla bla bla", Manufacturer = new Manufacturer { Name = "PeshoMotors" }, Quantity = 30, Price = 500, Name = "Driving wheel" };
-            //db.AutoParts.Add(autopart);
-            //db.SaveChanges();
-
-            //var report = new PdfReport();
-            //report.GenerateAutopartsReports(@"../../../Reports/PDF/", "joro", db);
-
-            var jsonExporter = new JsonReporter();
-            jsonExporter.GenerateJsonFiles(@"../../../Reports/JSON/", db);
-
-            //var parser = new XlsToAutoPart(db);
-            //parser.InsertDataIntoDB();
+            // dirReader.GetFiles(Constants.PathToFiles + "/Files.zip");
+            // var parser = new XlsToAutoPart(db);
+            // parser.InsertDataIntoDB();
         }
     }
 }
