@@ -10,5 +10,7 @@
         public static string PathToProjectFolder = PathToProgramExeFolder.Substring(0, PathToProgramExeFolder.Length - 10);
 
         public static string PathToFiles = PathToProjectFolder + "\\Files";
+
+        public static string DividerForExcelRead = "|||";
     }
 }

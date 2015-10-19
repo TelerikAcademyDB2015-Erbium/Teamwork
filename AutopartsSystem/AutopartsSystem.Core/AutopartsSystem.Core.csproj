@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNet Common Library, Version=4.5.0.5, Culture=neutral, PublicKeyToken=fa81e3c46e3914cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetCommonLibrary.4.5.0.5\lib\net40-Client\DotNet Common Library.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -39,10 +43,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Parsers\Excel\XlsReader.cs" />
     <Compile Include="Pdf\PdfReport.cs" />
     <Compile Include="Pdf\UniqueFileNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
