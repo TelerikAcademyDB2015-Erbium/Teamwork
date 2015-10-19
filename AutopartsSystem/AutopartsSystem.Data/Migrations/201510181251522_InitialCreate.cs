@@ -79,30 +79,29 @@ namespace AutopartsSystem.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Type = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
-            
+                .PrimaryKey(t => t.Id); 
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AutoParts", "Type_Id", "dbo.PartTypes");
-            DropForeignKey("dbo.AutoParts", "Manufacturer_Id", "dbo.Manufacturers");
-            DropForeignKey("dbo.AutoParts", "Compatibility_Id", "dbo.Compatibilities");
-            DropForeignKey("dbo.Compatibilities", "Model_Id", "dbo.CarModels");
-            DropForeignKey("dbo.CarModels", "Brand_Id", "dbo.CarBrands");
-            DropForeignKey("dbo.Compatibilities", "Brand_Id", "dbo.CarBrands");
-            DropIndex("dbo.CarModels", new[] { "Brand_Id" });
-            DropIndex("dbo.Compatibilities", new[] { "Model_Id" });
-            DropIndex("dbo.Compatibilities", new[] { "Brand_Id" });
-            DropIndex("dbo.AutoParts", new[] { "Type_Id" });
-            DropIndex("dbo.AutoParts", new[] { "Manufacturer_Id" });
-            DropIndex("dbo.AutoParts", new[] { "Compatibility_Id" });
-            DropTable("dbo.PartTypes");
-            DropTable("dbo.Manufacturers");
-            DropTable("dbo.CarModels");
-            DropTable("dbo.CarBrands");
-            DropTable("dbo.Compatibilities");
-            DropTable("dbo.AutoParts");
+            this.DropForeignKey("dbo.AutoParts", "Type_Id", "dbo.PartTypes");
+            this.DropForeignKey("dbo.AutoParts", "Manufacturer_Id", "dbo.Manufacturers");
+            this.DropForeignKey("dbo.AutoParts", "Compatibility_Id", "dbo.Compatibilities");
+            this.DropForeignKey("dbo.Compatibilities", "Model_Id", "dbo.CarModels");
+            this.DropForeignKey("dbo.CarModels", "Brand_Id", "dbo.CarBrands");
+            this.DropForeignKey("dbo.Compatibilities", "Brand_Id", "dbo.CarBrands");
+            this.DropIndex("dbo.CarModels", new[] { "Brand_Id" });
+            this.DropIndex("dbo.Compatibilities", new[] { "Model_Id" });
+            this.DropIndex("dbo.Compatibilities", new[] { "Brand_Id" });
+            this.DropIndex("dbo.AutoParts", new[] { "Type_Id" });
+            this.DropIndex("dbo.AutoParts", new[] { "Manufacturer_Id" });
+            this.DropIndex("dbo.AutoParts", new[] { "Compatibility_Id" });
+            this.DropTable("dbo.PartTypes");
+            this.DropTable("dbo.Manufacturers");
+            this.DropTable("dbo.CarModels");
+            this.DropTable("dbo.CarBrands");
+            this.DropTable("dbo.Compatibilities");
+            this.DropTable("dbo.AutoParts");
         }
     }
 }

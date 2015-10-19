@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.OleDb;
-using System.Text;
-using AutopartsSystem.Data;
-using AutopartsSystem.Data.Migrations;
-using AutopartsSystem.Models;
-
-namespace AutopartsSystem.ConsoleApp
+﻿namespace AutopartsSystem.ConsoleApp
 {
     using System;
-    using System.Linq;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.OleDb;
+    using System.Text;
+    using AutopartsSystem.Data;
+    using AutopartsSystem.Data.Migrations;
+    using AutopartsSystem.Models;
     using Core.Common;
     using Ionic.Zip;
 
@@ -18,18 +15,16 @@ namespace AutopartsSystem.ConsoleApp
     {
         public static void Main()
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AutopartsDbContext,Configuration>());
-            //var db = new AutopartsDbContext();
+            ////Database.SetInitializer(new MigrateDatabaseToLatestVersion<AutopartsDbContext,Configuration>());
+            ////var db = new AutopartsDbContext();
 
-            //db.Manufacturers.Add(new Manufacturer() { Name = "Bosch" });
-            //db.SaveChanges();
-            //Console.WriteLine(db.Manufacturers.Count());
+            ////db.Manufacturers.Add(new Manufacturer() { Name = "Bosch" });
+            ////db.SaveChanges();
+            ////Console.WriteLine(db.Manufacturers.Count());
 
-
-
-            // ZipFile zipFile = new ZipFile(Constants.PathToFiles + "/Files.zip");
-            // zipFile.ExtractAll(Constants.PathToFiles + "/Extracted/");
-            // Console.WriteLine(Constants.PathToFiles);
+            //// ZipFile zipFile = new ZipFile(Constants.PathToFiles + "/Files.zip");
+            //// zipFile.ExtractAll(Constants.PathToFiles + "/Extracted/");
+            //// Console.WriteLine(Constants.PathToFiles);
 
             Dictionary<string, string> props = new Dictionary<string, string>();
             props["Provider"] = "Microsoft.Jet.OLEDB.4.0";
@@ -48,13 +43,14 @@ namespace AutopartsSystem.ConsoleApp
                 sb.Append(prop.Value);
                 sb.Append(';');
             }
+
             string properties = sb.ToString();
 
             using (OleDbConnection conn = new OleDbConnection(properties))
             {
                 conn.Open();
                 DataSet ds = new DataSet();
-                string columns = String.Join(",", columnNames.ToArray());
+                string columns = string.Join(",", columnNames.ToArray());
                 using (OleDbDataAdapter da = new OleDbDataAdapter(
                     "SELECT " + columns + " FROM [" + "People" + "$]", conn))
                 {
@@ -64,7 +60,6 @@ namespace AutopartsSystem.ConsoleApp
                     ds.Tables.Add(dt);
                 }
             }
-
         }
     }
 }

@@ -1,12 +1,9 @@
 ﻿namespace AutopartsSystem.Core.Pdf
 {
-    using System;
     using System.IO;
     using System.Linq;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
-
-
     using AutopartsSystem.Data;
 
     public class PdfFileExporter
@@ -49,9 +46,6 @@
                         ManufacturerNameColumnHeader = c.Manufacturer.Name,
 
                         PriceColumnHeader = c.Price,
-                        
-
-
                     })
                 .ToList();
 
@@ -90,8 +84,6 @@
             table.SpacingBefore = 20f;
             table.SpacingAfter = 30f;
             return table;
-        }
-
-      
+        }  
     }
 }
