@@ -6,16 +6,16 @@
     using Data;
     using Models;
 
-    public class XlsToAutoPart
+    public class StringSetToAutoPart
     {
         private AutopartsDbContext db;
 
-        public XlsToAutoPart()
+        public StringSetToAutoPart()
         {
             this.db = new AutopartsDbContext();
         }
 
-        public XlsToAutoPart(AutopartsDbContext database) : this()
+        public StringSetToAutoPart(AutopartsDbContext database) : this()
         {
             this.db = database;
         }

@@ -61,8 +61,10 @@
     <Compile Include="JsonReporter\JsonReporter.cs" />
     <Compile Include="Parsers\Excel\ZipToMultipleXls.cs" />
     <Compile Include="Parsers\Excel\XlsReader.cs" />
-    <Compile Include="Parsers\Excel\XlsToAutoPart.cs" />
+    <Compile Include="Parsers\Excel\StringSetToAutoPart.cs" />
     <Compile Include="Parsers\Excel\ZipToAutoPart.cs" />
+    <Compile Include="Parsers\XML\XmlReader.cs" />
+    <Compile Include="Parsers\XML\XMLToDB.cs" />
     <Compile Include="Pdf\PdfReport.cs" />
     <Compile Include="Pdf\UniqueFileNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

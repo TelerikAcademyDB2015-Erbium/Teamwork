@@ -16,7 +16,7 @@
                 allRows.AddRange(reader.ProvideContent(Constants.PathToFiles + "/" + file, "Parts", format));
             }
 
-            var parser = new XlsToAutoPart();
+            var parser = new StringSetToAutoPart();
             parser.InsertDataIntoDB(allRows, format);
         }
     }
