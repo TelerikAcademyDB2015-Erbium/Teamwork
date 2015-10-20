@@ -58,15 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="JsonReporter\JsonReporter.cs" />
+    <Compile Include="Reporters\JSON\JsonReporter.cs" />
     <Compile Include="Parsers\Excel\ZipToMultipleXls.cs" />
     <Compile Include="Parsers\Excel\XlsReader.cs" />
     <Compile Include="Parsers\Excel\StringSetToAutoPart.cs" />
     <Compile Include="Parsers\Excel\ZipToAutoPart.cs" />
     <Compile Include="Parsers\XML\XmlReader.cs" />
     <Compile Include="Parsers\XML\XMLToDB.cs" />
-    <Compile Include="Pdf\PdfReport.cs" />
-    <Compile Include="Pdf\UniqueFileNameGenerator.cs" />
+    <Compile Include="Reporters\Pdf\PdfReport.cs" />
+    <Compile Include="Reporters\Pdf\UniqueFileNameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reporters\XML\XmlReport.cs" />
   </ItemGroup>

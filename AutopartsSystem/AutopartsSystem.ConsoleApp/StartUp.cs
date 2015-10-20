@@ -1,5 +1,4 @@
-﻿
-namespace AutopartsSystem.ConsoleApp
+﻿namespace AutopartsSystem.ConsoleApp
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -8,6 +7,9 @@ namespace AutopartsSystem.ConsoleApp
     using Data;
     using Data.Migrations;
     using Core.Parsers.Excel;
+    using Core.Pdf;
+    using Core;
+    using Core.Reporters.XML;
 
     public class Startup
     {
@@ -33,10 +35,10 @@ namespace AutopartsSystem.ConsoleApp
             //var report = new PdfReport();
             //report.GenerateAutopartsReports(Constants.PathForCreatedPDFReports, "joro", db);
 
-            var columnNames = new List<string>()
-            {
-               "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
-            };
+            //var columnNames = new List<string>()
+            //{
+            //   "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
+            //};
 
             //var jsonExporter = new JsonReporter();
             //jsonExporter.GenerateJsonFiles(Constants.PathForCreatedJsonReports, db);
@@ -54,7 +56,6 @@ namespace AutopartsSystem.ConsoleApp
 
             // var parser = new XlsToAutoPart(db);
             // parser.InsertDataIntoDB();
-
         }
     }
 }
