@@ -11,6 +11,12 @@
 
         public static string PathToFiles = PathToProjectFolder + "\\Files";
 
+        public static string PathForCreatedJsonReports = "../../../Reports/PDF/";
+
+        public static string PathForCreatedXMLReports = "../../../Reports/XML/";
+
+        public static string PathForCreatedPDFReports = "../../../Reports/PDF/";
+
         public static string DividerForExcelRead = "|||";
     }
 }
