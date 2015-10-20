@@ -1,4 +1,7 @@
-﻿namespace AutopartsSystem.ConsoleApp
+﻿using AutopartsSystem.Core;
+using AutopartsSystem.Core.Pdf;
+
+namespace AutopartsSystem.ConsoleApp
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -30,8 +33,9 @@
             // var report = new PdfReport();
             // report.GenerateAutopartsReports(@"../../../Reports/PDF/", "joro", db);
                
-            // var jsonExporter = new JsonReporter();
-            // jsonExporter.GenerateJsonFiles(@"../../../Reports/JSON/", db);
+            var jsonExporter = new JsonReporter();
+            jsonExporter.GenerateJsonFiles(@"../../../Reports/JSON/", db);
+
             // var columnNames = new List<string>()
             // {
             //    "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
@@ -42,8 +46,8 @@
             // dirReader.GetFiles(Constants.PathToFiles + "/Files.zip");
             // var parser = new XlsToAutoPart(db);
             // parser.InsertDataIntoDB();
-            var xmlReportTest = new XmlReport();
-            xmlReportTest.GenerateAutoPartReport();
+            // var xmlReportTest = new XmlReport();
+            // xmlReportTest.GenerateAutoPartReport();
         }
     }
 }

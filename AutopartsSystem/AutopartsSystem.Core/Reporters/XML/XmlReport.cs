@@ -16,15 +16,20 @@
 
             foreach (var entry in entries)
             {
+                XElement autoPart = new XElement("AutoPart");
                 XElement name = new XElement("Name", entry.Name);
                 XElement manufacturer = new XElement("Manufacturer", entry.Manufacturer.Name);
-                XElement model = new XElement("Model", entry.Compatibility.Model);
+                XElement compatibility = new XElement("Compatibility");
+                XElement model = new XElement("Model", entry.Compatibility.Model.Model);
+                XElement brand = new XElement("Model", entry.Compatibility.Brand.Brand);
                 XElement price = new XElement("Price", entry.Price);
                 XElement quantity = new XElement("Quantity", entry.Quantity);
-                XElement autoPart = new XElement("AutoPart");
+                
                 autoPart.Add(name);
                 autoPart.Add(manufacturer);
-                autoPart.Add(model);
+                compatibility.Add(brand);
+                compatibility.Add(model);
+                autoPart.Add(compatibility);
                 autoPart.Add(price);
                 autoPart.Add(quantity);
                 autoParts.Add(autoPart);

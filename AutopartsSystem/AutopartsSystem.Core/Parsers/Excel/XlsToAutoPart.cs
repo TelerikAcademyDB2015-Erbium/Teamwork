@@ -28,7 +28,7 @@
             int indexForCompatibility = format.IndexOf("Compatibility");
             int indexForManufacturer = format.IndexOf("Manufacturer");
             int indexForType = format.IndexOf("Type");
-            int iterations = 0;
+            int iterations = 1;
 
             foreach (var singleRow in content)
             {

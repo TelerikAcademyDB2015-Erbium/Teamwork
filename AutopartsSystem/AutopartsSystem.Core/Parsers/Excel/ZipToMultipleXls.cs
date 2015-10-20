@@ -14,7 +14,6 @@
             ZipFile zipFile = new ZipFile(pathToZip);
             var dirWithFiles = Constants.PathToFiles + "/Extracted/";
             zipFile.ExtractAll(dirWithFiles);
-            Console.WriteLine(Constants.PathToFiles);
             string[] allFiles = Directory.GetFiles(Constants.PathToFiles + "/Extracted/", "*.xls")
                                      .Select(path => Path.GetFileName(path))
                                      .ToArray();
