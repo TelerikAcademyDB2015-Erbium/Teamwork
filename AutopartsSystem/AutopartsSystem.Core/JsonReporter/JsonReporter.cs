@@ -13,22 +13,15 @@
         public void GenerateJsonFiles(string path, AutopartsDbContext db)
         {
             // var db = new AutopartsDbContext();
-            var autoParts = db.AutoParts
-                .Select(x => new
-                {
-                    ID = x.Id,
-                    Name = x.Name,
-                    Type = x.Type,
-                    Compatibility = x.Compatibility,
-                    Manufacturer = x.Manufacturer,
-                    Price = x.Price,
-                    Quantity = x.Quantity
-                }).ToList();
+            var autoParts = db.AutoParts.ToList();
+            var mysqlParser = new MySqlConnectionProvider();
+
 
             foreach (var item in autoParts)
             {
+                mysqlParser.AddContent(item);
                 var jsonObj = JsonConvert.SerializeObject(item, Formatting.Indented);
-                var adress = path + item.ID + ".json";
+                var adress = path + item.Id + ".json";
                 File.WriteAllText(adress, jsonObj.ToString());
             }
 
