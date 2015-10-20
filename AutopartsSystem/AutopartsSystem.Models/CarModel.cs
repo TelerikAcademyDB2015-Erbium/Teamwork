@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public CarBrand Brand { get; set; }
+        public virtual CarBrand Brand { get; set; }
 
         public string Model { get; set; }
     }

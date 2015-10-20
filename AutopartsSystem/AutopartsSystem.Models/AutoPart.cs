@@ -9,13 +9,11 @@
 
         public string Name { get; set; }
 
-        public PartType Type { get; set; }
+        public virtual PartType Type { get; set; }
 
-        public Compatibility Compatibility { get; set; }
+        public virtual Compatibility Compatibility { get; set; }
 
-        public int ManufacturerId { get; set; }
-
-        public Manufacturer Manufacturer { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
 
         public decimal Price { get; set; }
 
