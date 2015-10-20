@@ -11,7 +11,7 @@
 
         public static string PathToFiles = PathToProjectFolder + "\\Files";
 
-        public static string PathForCreatedJsonReports = "../../../Reports/PDF/";
+        public static string PathForCreatedJsonReports = "../../../Reports/JSON/";
 
         public static string PathForCreatedXMLReports = "../../../Reports/XML/";
 

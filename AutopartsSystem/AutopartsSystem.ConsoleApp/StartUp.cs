@@ -32,30 +32,25 @@
             // db.AutoParts.Add(autopart);
             // db.SaveChanges();
 
-            //var report = new PdfReport();
-            //report.GenerateAutopartsReports(Constants.PathForCreatedPDFReports, "joro", db);
+            // var report = new PdfReport();
+            // report.GenerateAutopartsReports(Constants.PathForCreatedPDFReports, "pavkata", db);
 
-            //var columnNames = new List<string>()
-            //{
-            //   "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
-            //};
+            // var jsonExporter = new JsonReporter();
+            // jsonExporter.GenerateJsonFiles(Constants.PathForCreatedJsonReports, db);
 
-            //var jsonExporter = new JsonReporter();
-            //jsonExporter.GenerateJsonFiles(Constants.PathForCreatedJsonReports, db);
+            // var xmlReportTest = new XmlReport();
+            // xmlReportTest.GenerateAutoPartReport(Constants.PathForCreatedXMLReports + "/" + "AutoParts.xml");
 
-            //var xmlReportTest = new XmlReport();
-            //xmlReportTest.GenerateAutoPartReport(Constants.PathForCreatedXMLReports + "/" + "AutoParts.xml");
+            // var columnNames = new List<string>()
+            // {
+            //    "Name", "Description", "Price", "Compatibility", "Manufacturer", "Type"
+            // };
 
-            //var xmlReader = new XMLToDB();
-            //xmlReader.ParseXmlToDb(Constants.PathToFiles + "/" + "AutoParts.xml", columnNames);
+            // var xmlReader = new XMLToDB();
+            // xmlReader.ParseXmlToDb(Constants.PathToFiles + "/" + "AutoParts.xml", columnNames);
 
-            //var zipReaderdbParser = new ZipToAutoPart();
+            // var zipReaderdbParser = new ZipToAutoPart();
             // zipReaderdbParser.ParseZipToDB(Constants.PathToFiles + "/Files.zip", columnNames);
-
-            // dirReader.GetFiles(Constants.PathToFiles + "/Files.zip");
-
-            // var parser = new XlsToAutoPart(db);
-            // parser.InsertDataIntoDB();
         }
     }
 }
